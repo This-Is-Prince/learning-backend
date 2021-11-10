@@ -56,7 +56,7 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/api/items", [logger, authorize], (req: Request, res: Response) => {
-  console.log(req.user);
+  // console.log(req.user);
   res.send("Items");
 });
 

@@ -47,7 +47,7 @@ app.get("/api/products", (req, res) => {
     res.send("Products");
 });
 app.get("/api/items", [logger_1.default, authorize_1.default], (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
     res.send("Items");
 });
 app.listen(port, () => {
