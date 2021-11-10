@@ -9,6 +9,8 @@ const connect_1 = __importDefault(require("./db/connect"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const process_1 = require("process");
 const path_1 = __importDefault(require("path"));
+const not_found_1 = __importDefault(require("./middleware/not-found"));
+const error_handler_1 = __importDefault(require("./middleware/error-handler"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = 3000;
@@ -17,6 +19,8 @@ app.use(express_1.default.static(path_1.default.resolve(__dirname, "./public")))
 app.use(express_1.default.json());
 // All Routes
 app.use("/api/v1/tasks", tasks_1.default);
+app.use(not_found_1.default);
+app.use(error_handler_1.default);
 const start = async () => {
     try {
         await (0, connect_1.default)(process_1.env.MONGO_URI);

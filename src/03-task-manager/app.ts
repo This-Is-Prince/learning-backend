@@ -4,6 +4,9 @@ import connectDB from "./db/connect";
 import dotenv from "dotenv";
 import { env } from "process";
 import path from "path";
+import notFound from "./middleware/not-found";
+import errorHandlerMiddleware from "./middleware/error-handler";
+
 dotenv.config();
 
 const app = express();
@@ -11,11 +14,12 @@ const port = 3000;
 
 // middleware
 app.use(express.static(path.resolve(__dirname, "./public")));
-
 app.use(express.json());
 
 // All Routes
 app.use("/api/v1/tasks", tasks);
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 declare global {
   namespace NodeJS {
