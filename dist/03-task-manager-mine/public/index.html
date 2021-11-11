@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task - Manager</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<body>
-    <h1>Hello</h1>
+  <body>
+    <header class="header">
+      <h1>Task Manager</h1>
+    </header>
+    <main class="main">
+      <section class="handle-task-wrapper">
+        <form action="" class="handle-task">
+          <input
+            type="text"
+            placeholder="e.g. learn openGL"
+            class="enter-task"
+          />
+          <button type="submit" class="create-task">Create</button>
+        </form>
+        <article class="response">Something went wrong!</article>
+      </section>
+      <section class="tasks">
+        <article class="task">Learn Three.js</article>
+        <article class="task">Learn Three.js</article>
+        <article class="task">Learn Three.js</article>
+      </section>
+    </main>
     <script src="./index.js"></script>
-</body>
-
+  </body>
 </html>
