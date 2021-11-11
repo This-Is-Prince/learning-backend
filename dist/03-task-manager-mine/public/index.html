@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task - Manager</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
 
@@ -14,7 +21,7 @@
     </header>
     <main class="main">
       <section class="handle-task-wrapper">
-        <form action="" class="handle-task">
+        <form class="handle-task">
           <input
             type="text"
             placeholder="e.g. learn openGL"
@@ -22,13 +29,28 @@
           />
           <button type="submit" class="create-task">Create</button>
         </form>
-        <article class="response">Something went wrong!</article>
       </section>
-      <section class="tasks">
-        <article class="task">Learn Three.js</article>
-        <article class="task">Learn Three.js</article>
-        <article class="task">Learn Three.js</article>
+      <section class="edit-task hide">
+        <article class="task-id">
+          <p class="title">id :</p>
+          <p class="content task-id-content">8054984350</p>
+        </article>
+        <article class="task-name">
+          <p class="title">name :</p>
+          <p class="content task-name-content">learn openGL</p>
+        </article>
+        <article class="task-completed">
+          <p class="title">completed :</p>
+          <input
+            title="completed"
+            type="checkbox"
+            name="completed"
+            id="completed"
+          />
+        </article>
       </section>
+      <button class="back-btn hide">Back</button>
+      <section class="tasks"></section>
     </main>
     <script src="./index.js"></script>
   </body>
