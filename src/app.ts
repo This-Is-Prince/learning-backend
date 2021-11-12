@@ -1,1 +1,1 @@
-console.log("hi");
+require("./04-store-api/app");
