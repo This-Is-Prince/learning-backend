@@ -12,7 +12,7 @@ const port = 3000;
 declare global {
   namespace NodeJS {
     export interface ProcessEnv {
-      MONGO_URI: string;
+      MONGO_URI_03_TASK_MANAGER: string;
     }
   }
 }
@@ -25,7 +25,7 @@ app.use("/api/v1/tasks", router);
 
 const start = async () => {
   try {
-    await connect(env.MONGO_URI);
+    await connect(env.MONGO_URI_03_TASK_MANAGER);
     app.listen(port, () => {
       console.log(`Server is listening on port ${port}....`);
     });

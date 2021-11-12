@@ -24,14 +24,14 @@ app.use(errorHandlerMiddleware);
 declare global {
   namespace NodeJS {
     export interface ProcessEnv {
-      MONGO_URI: string;
+      MONGO_URI_03_TASK_MANAGER: string;
     }
   }
 }
 
 const start = async () => {
   try {
-    await connectDB(env.MONGO_URI);
+    await connectDB(env.MONGO_URI_03_TASK_MANAGER);
     app.listen(port, () => {
       console.log(`Server is listening on port ${port}....`);
     });
