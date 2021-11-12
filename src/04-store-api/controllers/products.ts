@@ -8,16 +8,23 @@ const getAllProductsStatic: RequestHandler = async (req, res) => {
   res.status(200).json({ products, nbHits: products.length });
 };
 
+type PropertyType = boolean | string;
+
 interface QueryObjectType {
-  [key: string]: boolean;
+  [key: string]: PropertyType;
 }
 
 const getAllProducts: RequestHandler = async (req, res) => {
-  const { featured } = req.query;
+  const { featured, company } = req.query;
   // const products = await Product.find(req.query);
   let queryObject: QueryObjectType = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
+  }
+  if (company) {
+    if (typeof company === "string") {
+      queryObject.company = company;
+    }
   }
   console.log(queryObject);
   const products = await Product.find(queryObject);

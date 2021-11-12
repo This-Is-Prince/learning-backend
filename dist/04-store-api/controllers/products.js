@@ -13,11 +13,16 @@ const getAllProductsStatic = async (req, res) => {
 };
 exports.getAllProductsStatic = getAllProductsStatic;
 const getAllProducts = async (req, res) => {
-    const { featured } = req.query;
+    const { featured, company } = req.query;
     // const products = await Product.find(req.query);
     let queryObject = {};
     if (featured) {
         queryObject.featured = featured === "true" ? true : false;
+    }
+    if (company) {
+        if (typeof company === "string") {
+            queryObject.company = company;
+        }
     }
     console.log(queryObject);
     const products = await product_1.default.find(queryObject);
