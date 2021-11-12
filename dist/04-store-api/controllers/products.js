@@ -13,7 +13,7 @@ const getAllProductsStatic = async (req, res) => {
 };
 exports.getAllProductsStatic = getAllProductsStatic;
 const getAllProducts = async (req, res) => {
-    const { featured, company } = req.query;
+    const { featured, company, name } = req.query;
     // const products = await Product.find(req.query);
     let queryObject = {};
     if (featured) {
@@ -22,6 +22,11 @@ const getAllProducts = async (req, res) => {
     if (company) {
         if (typeof company === "string") {
             queryObject.company = company;
+        }
+    }
+    if (name) {
+        if (typeof name === "string") {
+            queryObject.name = { $regex: name, $options: "i" };
         }
     }
     console.log(queryObject);
