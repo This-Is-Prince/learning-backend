@@ -1,2 +1,2 @@
 "use strict";
-require("./04-store-api/app");
+require("./05-JWT-Basics/app");
