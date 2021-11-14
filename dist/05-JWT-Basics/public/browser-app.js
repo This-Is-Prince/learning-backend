@@ -21,6 +21,7 @@ formDOM.addEventListener("submit", async (e) => {
             }),
             headers: { "Content-type": "application/json; charset=UTF-8" },
         });
+        console.log(response.status);
         const data = await response.json();
         formAlertDOM.style.display = "block";
         formAlertDOM.textContent = data.msg;
