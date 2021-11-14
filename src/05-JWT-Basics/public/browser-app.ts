@@ -27,7 +27,7 @@ formDOM.addEventListener("submit", async (e) => {
       }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
     });
-    const { data } = await response.json();
+    const data = await response.json();
 
     formAlertDOM.style.display = "block";
     formAlertDOM.textContent = data.msg;
@@ -60,7 +60,9 @@ btnDOM.addEventListener("click", async () => {
       method: "GET",
       headers: new Headers({ Authorization: `Bearer ${token}` }),
     });
-    const { data } = await response.json();
+    const data = await response.json();
+    console.log(data);
+
     resultDOM.innerHTML = `<h5>${data.msg}</h5><p>${data.secret}</p>`;
 
     data.secret;
