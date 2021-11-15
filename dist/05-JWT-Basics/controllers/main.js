@@ -4,9 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dashboard = exports.login = void 0;
-const custom_error_1 = __importDefault(require("../errors/custom-error"));
+const errors_1 = require("../errors");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const process_1 = require("process");
+const http_status_codes_1 = require("http-status-codes");
 // check username, password in post(login) request
 // if exist create new JWT
 // send back to front-end
@@ -17,7 +18,7 @@ const login = async (req, res) => {
     // Joi
     // check in the controller
     if (!username || !password) {
-        throw new custom_error_1.default("Please provide email and password", 400);
+        throw new errors_1.BadRequest("Please provide email and password");
     }
     // just for demo, normally provided by DB!!!!
     const id = new Date().getDate();
@@ -27,27 +28,15 @@ const login = async (req, res) => {
         expiresIn: "30d",
     });
     // res.send("Fake login/Register/Signup");
-    res.status(200).json({ msg: "user created", token });
+    res.status(http_status_codes_1.StatusCodes.OK).json({ msg: "user created", token });
 };
 exports.login = login;
 const dashboard = async (req, res) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        throw new custom_error_1.default("No token provided", 401);
-    }
-    const token = authHeader.split(" ")[1];
-    try {
-        const decoded = jsonwebtoken_1.default.verify(token, process_1.env.JWT_SECRET);
-        const luckyNumber = Math.floor(Math.random() * 100);
-        if (typeof decoded !== "string") {
-            res.status(200).json({
-                msg: `Hello, ${decoded.username}`,
-                secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
-            });
-        }
-    }
-    catch (error) {
-        throw new custom_error_1.default("Not authorized to access this route", 401);
-    }
+    const luckyNumber = Math.floor(Math.random() * 100);
+    const { id, username } = req.user;
+    res.status(http_status_codes_1.StatusCodes.OK).json({
+        msg: `Hello, ${username}`,
+        secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+    });
 };
 exports.dashboard = dashboard;
