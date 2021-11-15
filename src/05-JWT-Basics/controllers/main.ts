@@ -32,24 +32,22 @@ const login: RequestHandler = async (req, res) => {
 
   // try to keep payload small, better experience for user
   // just for demo, in production use long, complex and unguessable string value!!!!!!!!
-  const token = jwt.sign({ username }, env.JWT_SECRET, { expiresIn: "30d" });
+  const token = jwt.sign({ id, username }, env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
   // res.send("Fake login/Register/Signup");
-  res.status(202).json({ msg: "Fake login/Register/Signup", token });
+  res.status(200).json({ msg: "user created", token });
 };
 
 const dashboard: RequestHandler = async (req, res) => {
   const authHeader = req.headers.authorization;
-
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     throw new CustomAPIError("No token provided", 401);
   }
   const token = authHeader.split(" ")[1];
-
   try {
     const decoded = jwt.verify(token, env.JWT_SECRET);
-
     const luckyNumber = Math.floor(Math.random() * 100);
-
     if (typeof decoded !== "string") {
       res.status(200).json({
         msg: `Hello, ${decoded.username}`,

@@ -23,9 +23,11 @@ const login = async (req, res) => {
     const id = new Date().getDate();
     // try to keep payload small, better experience for user
     // just for demo, in production use long, complex and unguessable string value!!!!!!!!
-    const token = jsonwebtoken_1.default.sign({ username }, process_1.env.JWT_SECRET, { expiresIn: "30d" });
+    const token = jsonwebtoken_1.default.sign({ id, username }, process_1.env.JWT_SECRET, {
+        expiresIn: "30d",
+    });
     // res.send("Fake login/Register/Signup");
-    res.status(202).json({ msg: "Fake login/Register/Signup", token });
+    res.status(200).json({ msg: "user created", token });
 };
 exports.login = login;
 const dashboard = async (req, res) => {
