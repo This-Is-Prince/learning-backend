@@ -5,10 +5,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Person - Info</title>
+    <script src="./initial.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Hello World</h1>
+    <header class="header">
+      <span class="logo"> info </span>
+      <button title="Sign Up" class="signUp btn center"></button>
+    </header>
+    <main class="main center">
+      <h1 class="error">cannot see info please sign up!!!!</h1>
+      <form class="sign-up-form hide">
+        <div class="form-control">
+          <label class="form-label">first name</label>
+          <input type="text" placeholder="e.g prince" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">last name</label>
+          <input type="text" placeholder="e.g prince" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">email</label>
+          <input type="email" placeholder="e.g prince" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">gender</label>
+          <div class="checkbox-wrapper">
+            <input
+              type="radio"
+              class="gender"
+              title="male"
+              name="gender"
+              id="male"
+            />
+            <label for="male">male</label>
+          </div>
+          <div class="checkbox-wrapper">
+            <input
+              type="radio"
+              class="gender"
+              title="female"
+              name="gender"
+              id="female"
+            />
+            <label for="female">female</label>
+          </div>
+          <div class="checkbox-wrapper">
+            <input
+              type="radio"
+              class="gender"
+              title="others"
+              name="gender"
+              id="others"
+            />
+            <label for="others">others</label>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label class="form-label">age</label>
+          <input type="number" placeholder="e.g prince" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">roll no.</label>
+          <input type="number" placeholder="e.g prince" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">phone no.</label>
+          <input type="tel" placeholder="e.g prince" class="form-element" />
+        </div>
+
+        <div class="form-control">
+          <label class="form-label">date of birth</label>
+          <input type="date" placeholder="e.g prince" class="form-element" />
+        </div>
+      </form>
+    </main>
     <script src="./index.js"></script>
   </body>
 </html>
