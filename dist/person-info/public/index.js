@@ -24,3 +24,23 @@ signUpBtn.addEventListener("click", () => {
     frontPageInst.classList.add("hide");
     signUpForm.classList.remove("hide");
 });
+/**
+ * Form Submit
+ */
+signUpForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let form = event.currentTarget;
+    let arr = [];
+    let data = new FormData(form);
+    // let registerObj = {
+    //   fname: data.get("fname"),
+    //   lname: data.get("lname"),
+    //   age: Number(data.get("age")),
+    //   email: data.get("email"),
+    //   phone: Number(data.get("phone")),
+    //   roll: Number(data.get("roll")),
+    //   date: new Date(data.get("date")!),
+    //   gender: '',
+    // };
+    return false;
+});

@@ -195,6 +195,18 @@ input[type="number"]::-webkit-outer-spin-button {
 .hide {
   display: none;
 }
+
+@media screen and (min-width: 776px) {
+  @supports (grid-template-columns: 1fr) {
+    .sign-up-form .form-control:last-child {
+      grid-area: 5/1/6/3;
+    }
+  }
+}
+.submit {
+  margin: auto;
+  border: 0.15rem solid var(--highlight);
+}
 @media screen and (max-width: 576px) {
   .header {
     padding: 0.5rem 1rem;
