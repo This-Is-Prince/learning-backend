@@ -2,6 +2,10 @@
  * All Variables
  */
 const signUpBtn = document.querySelector(".signUp") as HTMLButtonElement;
+const signUpForm = document.querySelector(".sign-up-form") as HTMLFormElement;
+const frontPageInst = document.querySelector(
+  ".front-page-ins"
+) as HTMLHeadingElement;
 
 // Remove login Token
 const removeLoginToken = () => {
@@ -17,4 +21,8 @@ window.addEventListener("load", () => {
     signUpBtn.classList.remove("account");
     signUpBtn.textContent = "sign up";
   }
+});
+signUpBtn.addEventListener("click", () => {
+  frontPageInst.classList.add("hide");
+  signUpForm.classList.remove("hide");
 });

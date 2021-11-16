@@ -21,70 +21,75 @@
       <button title="Sign Up" class="signUp btn center"></button>
     </header>
     <main class="main center">
-      <h1 class="error">cannot see info please sign up!!!!</h1>
-      <form class="sign-up-form hide">
+      <h1 class="front-page-ins hide">cannot see info please sign up!!!!</h1>
+      <form class="sign-up-form">
         <div class="form-control">
           <label class="form-label">first name</label>
           <input type="text" placeholder="e.g prince" class="form-element" />
         </div>
         <div class="form-control">
           <label class="form-label">last name</label>
-          <input type="text" placeholder="e.g prince" class="form-element" />
+          <input type="text" placeholder="e.g. kumar" class="form-element" />
         </div>
         <div class="form-control">
           <label class="form-label">email</label>
-          <input type="email" placeholder="e.g prince" class="form-element" />
+          <input
+            type="email"
+            placeholder="name@example.com"
+            class="form-element"
+          />
         </div>
-        <div class="form-control">
-          <label class="form-label">gender</label>
-          <div class="checkbox-wrapper">
-            <input
-              type="radio"
-              class="gender"
-              title="male"
-              name="gender"
-              id="male"
-            />
-            <label for="male">male</label>
-          </div>
-          <div class="checkbox-wrapper">
-            <input
-              type="radio"
-              class="gender"
-              title="female"
-              name="gender"
-              id="female"
-            />
-            <label for="female">female</label>
-          </div>
-          <div class="checkbox-wrapper">
-            <input
-              type="radio"
-              class="gender"
-              title="others"
-              name="gender"
-              id="others"
-            />
-            <label for="others">others</label>
-          </div>
-        </div>
-
         <div class="form-control">
           <label class="form-label">age</label>
-          <input type="number" placeholder="e.g prince" class="form-element" />
+          <input type="number" placeholder="e.g. 21" class="form-element" />
         </div>
         <div class="form-control">
           <label class="form-label">roll no.</label>
-          <input type="number" placeholder="e.g prince" class="form-element" />
+          <input type="number" placeholder="1923" class="form-element" />
         </div>
         <div class="form-control">
           <label class="form-label">phone no.</label>
-          <input type="tel" placeholder="e.g prince" class="form-element" />
+          <input type="tel" placeholder="+00 8844223344" class="form-element" />
         </div>
 
         <div class="form-control">
           <label class="form-label">date of birth</label>
-          <input type="date" placeholder="e.g prince" class="form-element" />
+          <input type="date" title="date" class="form-element" />
+        </div>
+        <div class="form-control">
+          <label class="form-label">gender</label>
+          <div class="form-element-wrapper">
+            <div class="checkbox-wrapper">
+              <input
+                type="radio"
+                class="gender"
+                title="male"
+                name="gender"
+                id="male"
+              />
+              <label for="male">male</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input
+                type="radio"
+                class="gender"
+                title="female"
+                name="gender"
+                id="female"
+              />
+              <label for="female">female</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input
+                type="radio"
+                class="gender"
+                title="others"
+                name="gender"
+                id="others"
+              />
+              <label for="others">others</label>
+            </div>
+          </div>
         </div>
       </form>
     </main>
