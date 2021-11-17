@@ -37,7 +37,7 @@ signUpForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   let form = event.currentTarget as HTMLFormElement;
   let elements = form.elements;
-  let registeredObject: RegisteredObjectType = { roll: "21" };
+  let registeredObject: RegisteredObjectType = {};
 
   for (let i = 0; i < elements.length; i++) {
     let element = elements[i] as HTMLInputElement;
@@ -56,7 +56,6 @@ signUpForm.addEventListener("submit", async (event) => {
       registeredObject[name] = value;
     }
   }
-  console.log(registeredObject);
   try {
     const response = await fetch("/api/v1/signup", {
       method: "POST",
@@ -64,7 +63,6 @@ signUpForm.addEventListener("submit", async (event) => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     });
     const data = await response.json();
-    console.log(data);
     if (response.status === 201) {
       signUpForm.classList.add("hide");
       signUpBtn.innerHTML = ``;
