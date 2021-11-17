@@ -5,6 +5,7 @@ import express from "express";
 import path from "path";
 import { env } from "process";
 import connectDB from "./db/connect";
+import errorHandlerMiddleware from "./middleware/error-handler";
 import notFound from "./middleware/not-found";
 import PersonRouter from "./routes/person";
 
@@ -18,6 +19,7 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use("/api/v1", PersonRouter);
 
 app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 declare global {
   namespace NodeJS {
