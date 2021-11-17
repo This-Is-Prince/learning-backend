@@ -5,6 +5,7 @@ import express from "express";
 import path from "path";
 import { env } from "process";
 import connectDB from "./db/connect";
+import notFound from "./middleware/not-found";
 import PersonRouter from "./routes/person";
 
 // App
@@ -13,8 +14,10 @@ const port = env.PORT;
 
 // Middleware
 app.use(express.json());
-app.use("/api/v1", PersonRouter);
 app.use(express.static(path.resolve(__dirname, "./public")));
+app.use("/api/v1", PersonRouter);
+
+app.use(notFound);
 
 declare global {
   namespace NodeJS {
