@@ -37,33 +37,35 @@ signUpForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   let form = event.currentTarget as HTMLFormElement;
   let elements = form.elements;
-  let registeredObject: RegisteredObjectType = {};
+  let registeredObject: RegisteredObjectType = { roll: "21" };
 
   for (let i = 0; i < elements.length; i++) {
     let element = elements[i] as HTMLInputElement;
     let name = element.name;
     let value = element.value;
-    if (element.type === "radio") {
+    let type = element.type;
+    if (type === "radio") {
       if (element.checked) {
         registeredObject[name] = value;
       }
-    } else if (element.type === "date") {
+    } else if (type === "date") {
       registeredObject[name] = new Date(value);
     } else if (name === "age") {
       registeredObject[name] = Number(value);
-    } else {
+    } else if (type !== "submit") {
       registeredObject[name] = value;
     }
   }
   console.log(registeredObject);
   try {
-    const response = await fetch("/signup", {
+    const response = await fetch("/api/v1/signup", {
       method: "POST",
       body: JSON.stringify(registeredObject),
       headers: { "Content-type": "application/json; charset=UTF-8" },
     });
     const data = await response.json();
-    if (response.status === 202) {
+    console.log(data);
+    if (response.status === 201) {
       signUpForm.classList.add("hide");
       signUpBtn.innerHTML = ``;
       signUpBtn.classList.add("account");

@@ -1,6 +1,8 @@
+require("express-async-errors");
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
+import path from "path";
 import { env } from "process";
 import connectDB from "./db/connect";
 import PersonRouter from "./routes/person";
@@ -12,6 +14,7 @@ const port = env.PORT;
 // Middleware
 app.use(express.json());
 app.use("/api/v1", PersonRouter);
+app.use(express.static(path.resolve(__dirname, "./public")));
 
 declare global {
   namespace NodeJS {
