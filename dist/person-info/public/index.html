@@ -28,6 +28,7 @@
           <input
             type="text"
             name="fname"
+            required
             placeholder="e.g prince"
             class="form-element"
           />
@@ -37,6 +38,7 @@
           <input
             type="text"
             name="lname"
+            required
             placeholder="e.g. kumar"
             class="form-element"
           />
@@ -46,6 +48,7 @@
           <input
             type="email"
             name="email"
+            required
             placeholder="name@example.com"
             class="form-element"
           />
@@ -55,6 +58,9 @@
           <input
             type="number"
             name="age"
+            min="0"
+            max="150"
+            required
             placeholder="e.g. 21"
             class="form-element"
           />
@@ -64,6 +70,8 @@
           <input
             type="number"
             name="roll"
+            required
+            min="0"
             placeholder="1923"
             class="form-element"
           />
@@ -73,6 +81,7 @@
           <input
             type="tel"
             name="phone"
+            required
             placeholder="+00 8844223344"
             class="form-element"
           />
@@ -80,7 +89,13 @@
 
         <div class="form-control">
           <label class="form-label">date of birth</label>
-          <input type="date" name="dob" title="date" class="form-element" />
+          <input
+            type="date"
+            name="dob"
+            required
+            title="date"
+            class="form-element"
+          />
         </div>
         <div class="form-control">
           <label class="form-label">gender</label>
@@ -89,8 +104,10 @@
               <input
                 type="radio"
                 class="gender"
+                required
                 title="male"
                 name="gender"
+                value="male"
                 id="male"
               />
               <label for="male">male</label>
@@ -98,9 +115,11 @@
             <div class="checkbox-wrapper">
               <input
                 type="radio"
+                required
                 class="gender"
                 title="female"
                 name="gender"
+                value="female"
                 id="female"
               />
               <label for="female">female</label>
@@ -108,9 +127,11 @@
             <div class="checkbox-wrapper">
               <input
                 type="radio"
+                required
                 class="gender"
                 title="others"
                 name="gender"
+                value="others"
                 id="others"
               />
               <label for="others">others</label>

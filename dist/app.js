@@ -1,2 +1,2 @@
 "use strict";
-require("./05-JWT-Basics/app");
+require("./person-info/app");
