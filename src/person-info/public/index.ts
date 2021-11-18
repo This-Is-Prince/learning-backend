@@ -64,10 +64,12 @@ signUpForm.addEventListener("submit", async (event) => {
     });
     const data = await response.json();
     if (response.status === 201) {
+      removeLoginToken();
       signUpForm.classList.add("hide");
       signUpBtn.innerHTML = ``;
       signUpBtn.classList.add("account");
       signUpBtn.innerHTML = `<i class="fas fa-user-circle"></i>`;
+      localStorage.setItem("login-token", data.token);
     } else {
       console.log("error");
     }

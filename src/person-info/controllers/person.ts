@@ -13,4 +13,10 @@ const createPerson: RequestHandler = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ token, data });
 };
 
-export { createPerson };
+const getAllPerson: RequestHandler = async (req, res) => {
+  console.log(req.headers);
+  const data = await Person.find({});
+  res.status(StatusCodes.OK).json(data);
+};
+
+export { createPerson, getAllPerson };
