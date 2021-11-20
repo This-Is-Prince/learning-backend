@@ -20,6 +20,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please provide password."],
     minlength: 6,
-    maxlength: 12,
   },
 });
+
+export default model("User", userSchema);
