@@ -101,6 +101,8 @@
     "src/01-node-tutorial",
     "src/02-express-tutorial",
     "src/03-task-manager",
-    "src/03-task-manager-mine"
+    "src/03-task-manager-mine",
+    "src/04-store-api",
+    "src/05-JWT-Basics"
   ]
 }

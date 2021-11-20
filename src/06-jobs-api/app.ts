@@ -6,6 +6,7 @@ import notFound from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import express from "express";
 import connectDB from "./db/connect";
+import authenticateUser from "./middleware/authentication";
 
 // Importing Routers
 import authRouter from "./routes/auth";
@@ -17,6 +18,7 @@ declare global {
     export interface ProcessEnv {
       MONGO_URI_06_JOBS_API: string;
       JWT_LIFETIME: string;
+      JWT_SECRET: string;
     }
   }
 }
@@ -31,7 +33,7 @@ app.use(express.json());
 
 // All Routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 // Error Middleware
 app.use(notFound);
