@@ -16,6 +16,7 @@ declare global {
   namespace NodeJS {
     export interface ProcessEnv {
       MONGO_URI_06_JOBS_API: string;
+      JWT_LIFETIME: string;
     }
   }
 }
