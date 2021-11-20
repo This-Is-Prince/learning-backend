@@ -6,6 +6,9 @@ import { BadRequestError, NotFoundError } from "../errors";
 export interface CreateJobRequest extends Request {
   body: { createdBy: string };
 }
+export interface UpdateJobRequest extends Request {
+  body: { company: string; position: string };
+}
 
 // Get all jobs
 const getAllJobs: RequestHandler = async (req, res) => {
@@ -38,12 +41,39 @@ const createJob: RequestHandler = async (req: CreateJobRequest, res) => {
 };
 
 // Update Job
-const updateJob: RequestHandler = async (req, res) => {
-  res.send("update job");
+const updateJob: RequestHandler = async (req: UpdateJobRequest, res) => {
+  const {
+    body: { company, position },
+    user: { userId },
+    params: { id: jobId },
+  } = req;
+  if (company === "" || position === "") {
+    throw new BadRequestError(`Company or Position Fields can't be empty`);
+  }
+  const job = await Job.findByIdAndUpdate(
+    { _id: jobId, createdBy: userId },
+    req.body,
+    { new: true, runValidators: true }
+  );
+  if (!job) {
+    throw new NotFoundError(`No Job with id ${jobId}`);
+  }
+  res.status(StatusCodes.OK).json({ job });
 };
 
 // Delete Job
 const deleteJob: RequestHandler = async (req, res) => {
-  res.send("delete job");
+  const {
+    user: { userId },
+    params: { id: jobId },
+  } = req;
+  const job = await Job.findOneAndRemove({
+    _id: jobId,
+    createdBy: userId,
+  });
+  if (!job) {
+    throw new NotFoundError(`No Job with id ${jobId}`);
+  }
+  res.status(StatusCodes.OK).json({ job });
 };
 export { createJob, getAllJobs, deleteJob, getJob, updateJob };
