@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http_status_codes_1 = require("http-status-codes");
 const custom_api_1 = __importDefault(require("./custom-api"));
 class UnAuthorizedError extends custom_api_1.default {
+    statusCode = http_status_codes_1.StatusCodes.UNAUTHORIZED;
     constructor(msg) {
         super(msg);
-        this.statusCode = http_status_codes_1.StatusCodes.UNAUTHORIZED;
     }
 }
 exports.default = UnAuthorizedError;
