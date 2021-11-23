@@ -9,6 +9,7 @@ dotenv_1.default.config();
 const express_1 = __importDefault(require("express"));
 const process_1 = require("process");
 const connect_1 = __importDefault(require("./db/connect"));
+const authHandler_1 = __importDefault(require("./middleware/authHandler"));
 const not_found_1 = __importDefault(require("./middleware/not-found"));
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 const auth_1 = __importDefault(require("./routes/auth"));
@@ -20,7 +21,7 @@ const port = process_1.env.PORT || 3000;
 app.use(express_1.default.json());
 // Routes
 app.use("/api/v1/auth", auth_1.default);
-app.use("/api/v1/jobs", jobs_1.default);
+app.use("/api/v1/jobs", authHandler_1.default, jobs_1.default);
 // Handling errors in routes
 app.use(not_found_1.default);
 app.use(errorHandler_1.default);

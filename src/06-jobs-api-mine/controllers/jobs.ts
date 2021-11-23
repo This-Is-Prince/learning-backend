@@ -9,7 +9,7 @@ const getJob: RequestHandler = async (req, res) => {
 };
 
 const createJob: RequestHandler = async (req, res) => {
-  res.send("create job");
+  res.json(req.user);
 };
 
 const updateJob: RequestHandler = async (req, res) => {

@@ -4,6 +4,7 @@ dotenv.config();
 import express from "express";
 import { env } from "process";
 import connectDB from "./db/connect";
+import authenticateUser from "./middleware/authHandler";
 import notFound from "./middleware/not-found";
 import errorHandler from "./middleware/errorHandler";
 import authRoute from "./routes/auth";
@@ -29,7 +30,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/jobs", jobsRoute);
+app.use("/api/v1/jobs", authenticateUser, jobsRoute);
 
 // Handling errors in routes
 app.use(notFound);
