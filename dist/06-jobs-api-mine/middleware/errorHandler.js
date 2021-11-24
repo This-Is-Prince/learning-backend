@@ -19,9 +19,13 @@ const errorHandler = (err, req, res, next) => {
         customError.statusCode = http_status_codes_1.StatusCodes.BAD_REQUEST;
         customError.msg = errors;
     }
-    if (err.code === 11000) {
+    if (err.code && err.code === 11000) {
         customError.statusCode = http_status_codes_1.StatusCodes.BAD_REQUEST;
         customError.msg = `User already exist with email ${err.keyValue.email} ...`;
+    }
+    if (err.name === "CastError") {
+        customError.msg = `No item found with id : ${err.value}`;
+        customError.statusCode = http_status_codes_1.StatusCodes.NOT_FOUND;
     }
     /**
      * Response for error
