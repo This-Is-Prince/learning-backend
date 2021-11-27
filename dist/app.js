@@ -1,2 +1,2 @@
 "use strict";
-require("./06-jobs-api-mine/app");
+require("./07-file-upload/app");

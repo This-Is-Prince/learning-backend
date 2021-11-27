@@ -105,6 +105,7 @@
     "src/04-store-api",
     "src/05-JWT-Basics",
     "src/06-jobs-api",
+    "src/06-jobs-api-mine",
     "src/person-info"
   ]
 }
